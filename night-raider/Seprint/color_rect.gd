@@ -70,23 +70,17 @@ var item_id_counter: int = 0
 # 全局拖拽状态
 var is_global_dragging: bool = false
 var global_drag_item: ItemResource = null
-var global_drag_source: ColorRect = null
+var global_drag_source: Control = null
 
 # ===== 获取 DragManager =====
 func get_drag_manager():
-	if Engine.has_singleton("DragManager"):
-		return Engine.get_singleton("DragManager")
+	if Engine.has_singleton("Dragmanager"):
+		return Engine.get_singleton("Dragmanager")
 	
 	var root = get_tree().root
-	if root:
-		var dm = root.get_node_or_null("DragManager")
-		if dm:
-			return dm
-	
-	for child in get_tree().root.get_children():
-		if child is DragManager:
+	for child in root.get_children():
+		if child.name == "Dragmanager":
 			return child
-	
 	return null
 
 # ===== 自适应容器大小 =====
@@ -108,15 +102,35 @@ func _ready() -> void:
 	add_to_group("inventory_containers")
 	
 	if not Engine.is_editor_hint():
-		call_deferred("connect_drag_manager")
+		call_deferred("_connect_drag_manager")
 
 func _exit_tree() -> void:
-	# 节点销毁时强制清理置顶预览，杜绝残影残留
 	if drag_preview and is_instance_valid(drag_preview):
 		drag_preview.queue_free()
 		drag_preview = null
 
-func connect_drag_manager() -> void:
+# ========== 核心新增：帧更新，实时同步全局拖拽状态 ==========
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	# 自身拖拽由_gui_input处理，无需重复
+	if is_dragging_self:
+		return
+	# 全局拖拽中才更新，避免无效重绘
+	var dm = get_drag_manager()
+	if dm == null or not dm.is_dragging:
+		if is_global_dragging:
+			is_global_dragging = false
+			global_drag_item = null
+			queue_redraw()
+		return
+	
+	# 同步状态+更新悬停+重绘预览
+	_sync_global_drag_state()
+	update_hover()
+	queue_redraw()
+
+func _connect_drag_manager() -> void:
 	var drag_manager = get_drag_manager()
 	if drag_manager:
 		if drag_manager.drag_started.is_connected(_on_drag_started):
@@ -129,8 +143,10 @@ func connect_drag_manager() -> void:
 		drag_manager.drag_started.connect(_on_drag_started)
 		drag_manager.drag_ended.connect(_on_drag_ended)
 		drag_manager.drag_cancelled.connect(_on_drag_cancelled)
+		print("[背包] DragManager连接成功")
 	else:
-		get_tree().create_timer(0.1).timeout.connect(connect_drag_manager)
+		print("[背包] 未找到DragManager，重试中...")
+		get_tree().create_timer(0.5).timeout.connect(_connect_drag_manager)
 
 func _validate_property(changed: Dictionary) -> void:
 	refresh_auto_layout_items()
@@ -144,7 +160,6 @@ func duplicate_item_resource(original: ItemResource) -> ItemResource:
 		return null
 	
 	var new_item = ItemResource.new()
-	# 基础属性
 	new_item.name = original.name
 	new_item.weight = original.weight
 	new_item.height = original.height
@@ -153,33 +168,29 @@ func duplicate_item_resource(original: ItemResource) -> ItemResource:
 	new_item.物品等级 = original.物品等级
 	new_item.物品重量 = original.物品重量
 	
-	# ========== 核心修复：补全物品类型属性 ==========
 	new_item.is_枪 = original.is_枪
 	new_item.is_药品 = original.is_药品
 	new_item.is_刀具 = original.is_刀具
 	new_item.is_其他 = original.is_其他
 	
-	# ========== 同步复制扩展属性，避免后续丢失 ==========
-	# 枪械属性
 	new_item.gun_伤害 = original.gun_伤害
 	new_item.gun_弹匣容量 = original.gun_弹匣容量
 	new_item.gun_射速 = original.gun_射速
 	new_item.gun_有效射程 = original.gun_有效射程
 	new_item.gun_弹药类型 = original.gun_弹药类型
 	
-	# 药品属性
 	new_item.med_回复量 = original.med_回复量
 	new_item.med_使用时间 = original.med_使用时间
 	new_item.med_效果类型 = original.med_效果类型
 	new_item.med_持续时间 = original.med_持续时间
 	
-	# 刀具属性
 	new_item.knife_伤害 = original.knife_伤害
 	new_item.knife_攻击速度 = original.knife_攻击速度
 	new_item.knife_攻击范围 = original.knife_攻击范围
 	new_item.knife_耐久度 = original.knife_耐久度
 	
 	return new_item
+
 func refresh_auto_layout_items() -> void:
 	bag_items.clear()
 	item_id_counter = 0
@@ -191,7 +202,7 @@ func refresh_auto_layout_items() -> void:
 		var instance = scene.instantiate()
 		var item_data: ItemResource = null
 		
-		if instance is TextureRect and instance.get("itemResource") != null:
+		if instance is TextureRect and ("itemResource" in instance):
 			item_data = instance.itemResource
 		
 		if item_data == null and instance.has_meta("itemResource"):
@@ -204,10 +215,10 @@ func refresh_auto_layout_items() -> void:
 		
 		var item_copy = duplicate_item_resource(item_data)
 		
-		var free_slot = find_first_empty_slot(item_copy, false)
+		var free_slot = find_first_empty_slot(item_copy)
 		if free_slot == Vector2i(-1, -1):
 			var rotated_item = create_rotated_item(item_copy)
-			free_slot = find_first_empty_slot(rotated_item, true)
+			free_slot = find_first_empty_slot(rotated_item)
 			if free_slot == Vector2i(-1, -1):
 				continue
 			else:
@@ -253,6 +264,7 @@ func add_item(item_res: ItemResource, pos: Vector2i, rotated: bool) -> int:
 	item_id_counter += 1
 	bind_resource_signals()
 	_update_total_weight()
+	queue_redraw()
 	return new_id
 
 # ===== 重量统计 =====
@@ -265,32 +277,35 @@ func _update_total_weight() -> void:
 	weight_changed.emit(total)
 
 # ===== 网格功能 =====
-func find_first_empty_slot(item: ItemResource, rotated: bool = false) -> Vector2i:
-	for row in range(grid_rows):
-		for col in range(grid_cols):
-			var start = Vector2i(col, row)
-			if check_out_of_bounds(start, item):
-				continue
-			var all_empty = true
-			var occupy = get_occupy_cells(start, item)
-			for cell in occupy:
-				if is_cell_occupied(cell, rotated):
-					all_empty = false
-					break
-			if all_empty:
-				return start
+func find_first_empty_slot(item: ItemResource) -> Vector2i:
+	if item == null:
+		return Vector2i(-1, -1)
+	
+	for y in range(grid_rows - item.height + 1):
+		for x in range(grid_cols - item.weight + 1):
+			if can_place_item(item, Vector2i(x, y)):
+				return Vector2i(x, y)
 	return Vector2i(-1, -1)
+
+func try_place_item_auto(item: ItemResource) -> bool:
+	if item == null:
+		return false
+	var slot = find_first_empty_slot(item)
+	if slot.x == -1:
+		return false
+	add_item(item, slot, false)
+	return true
 
 func bind_resource_signals() -> void:
 	for res in resource_signal_cache.keys():
-		if res != null and res.is_connected("changed", Callable(self, "queue_redraw")):
+		if res != null and res.changed.is_connected(queue_redraw):
 			res.changed.disconnect(queue_redraw)
 	
 	resource_signal_cache.clear()
 	
 	for data in bag_items:
 		var res = data["res"]
-		if res != null and not res.is_connected("changed", Callable(self, "queue_redraw")):
+		if res != null and not res.changed.is_connected(queue_redraw):
 			res.changed.connect(queue_redraw)
 			resource_signal_cache[res] = true
 
@@ -305,11 +320,9 @@ func _draw() -> void:
 	draw_hover_cells()
 	draw_all_bag_items()
 	
-	# 自身拖拽预览
 	if is_dragging_self and hovered_cell != Vector2i(-1, -1) and dragging_item_data != null:
 		draw_placement_preview(dragging_item_data)
 	
-	# 全局拖拽目标容器预览
 	if not is_dragging_self and is_global_dragging:
 		if hovered_cell != Vector2i(-1, -1) and global_drag_item != null:
 			draw_placement_preview(global_drag_item)
@@ -332,7 +345,7 @@ func draw_placement_preview(item_data: ItemResource) -> void:
 			min(preview_pixel_start.x + preview_w, grid_offset.x + grid_total_size.x) - max(preview_pixel_start.x, grid_offset.x),
 			min(preview_pixel_start.y + preview_h, grid_offset.y + grid_total_size.y) - max(preview_pixel_start.y, grid_offset.y)
 		)
-		if clip_rect.size.x > 0 and clip_rect.size.y > 0:
+		if clip_rect.size.x > 0 && clip_rect.size.y > 0:
 			var color = valid_placement_color if placement_valid else invalid_placement_color
 			draw_rect(clip_rect, color, true)
 	else:
@@ -345,7 +358,7 @@ func draw_placement_preview(item_data: ItemResource) -> void:
 func draw_occupancy_grid(item_data: ItemResource, top_left: Vector2i) -> void:
 	var occupy_cells = get_occupy_cells(top_left, item_data)
 	for cell in occupy_cells:
-		if cell.x >= 0 and cell.x < grid_cols and cell.y >= 0 and cell.y < grid_rows:
+		if cell.x >= 0 && cell.x < grid_cols && cell.y >= 0 && cell.y < grid_rows:
 			var cell_pixel = grid_offset + Vector2(cell) * cell_pixel_size
 			draw_rect(Rect2(cell_pixel, cell_size), Color.WHITE, false, 1.0)
 
@@ -353,12 +366,12 @@ func draw_all_bag_items() -> void:
 	if bag_items.is_empty():
 		return
 	for data in bag_items:
-		if is_dragging_self and data["id"] == dragging_item_id:
+		if is_dragging_self && data["id"] == dragging_item_id:
 			continue
 		draw_single_item(data["pos"], data["res"])
 
 func draw_single_item(top_left: Vector2i, item: ItemResource) -> void:
-	if item == null or item.texture == null:
+	if item == null || item.texture == null:
 		return
 	
 	var pixel_start = grid_offset + Vector2(top_left) * cell_pixel_size
@@ -370,10 +383,10 @@ func draw_single_item(top_left: Vector2i, item: ItemResource) -> void:
 	if rarity_color.a > 0:
 		draw_rect(item_rect, rarity_color, true)
 	
-	draw_rect(item_rect, get_rarity_border_color(item), false, 2.0)
+	draw_rect(item_rect, get_rarity_border_color(item), false, border_width)
 	
 	var tex_size = item.texture.get_size()
-	if tex_size.x > 0 and tex_size.y > 0:
+	if tex_size.x > 0 && tex_size.y > 0:
 		var fit_scale = min(item_w / tex_size.x, item_h / tex_size.y)
 		var tex_draw_size = tex_size * fit_scale
 		var draw_pos = pixel_start + Vector2((item_w - tex_draw_size.x) / 2.0, (item_h - tex_draw_size.y) / 2.0)
@@ -414,33 +427,37 @@ func draw_grid_lines() -> void:
 		var y = grid_offset.y + i * cell_pixel_size
 		draw_line(Vector2(grid_offset.x, y), Vector2(grid_offset.x + grid_total_size.x, y), line_color, line_width)
 
-# ===== 输入处理 + 全局状态同步 =====
-func _input(event: InputEvent) -> void:
+# ========== 输入处理 ==========
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_sync_global_drag_state()
 		update_hover()
 		
-		if is_dragging_self or is_global_dragging:
+		if is_dragging_self || is_global_dragging:
 			queue_redraw()
 		
-		if is_dragging_self and drag_preview:
+		if is_dragging_self && drag_preview:
 			drag_preview.global_position = get_global_mouse_position() - drag_preview.size / 2
+		return
 	
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				start_drag()
-			else:
-				end_drag()
-	
-	if event is InputEventKey and event.pressed:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			start_drag()
+			accept_event()
+		else:
+			end_drag()
+			accept_event()
+		return
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey && event.pressed && !event.echo:
 		if event.keycode == KEY_R:
 			if is_dragging_self:
 				rotate_dragging_item()
 			elif hovered_cell != Vector2i(-1, -1):
 				rotate_item_at_cell(hovered_cell)
 
-# 主动同步全局拖拽状态（信号+查询双保险）
+# 同步全局拖拽状态
 func _sync_global_drag_state() -> void:
 	var dm = get_drag_manager()
 	if dm == null:
@@ -464,14 +481,13 @@ func start_drag() -> void:
 		return
 	
 	var drag_manager = get_drag_manager()
-	if drag_manager and drag_manager.is_dragging:
+	if drag_manager == null:
+		return
+	if drag_manager.is_dragging:
 		return
 	
 	var clicked_item = get_item_at_cell(hovered_cell)
-	if clicked_item == null or clicked_item.is_empty():
-		return
-	
-	if drag_manager == null:
+	if clicked_item == null || clicked_item.is_empty():
 		return
 	
 	dragging_item_id = clicked_item["id"]
@@ -501,8 +517,7 @@ func end_drag() -> void:
 	if not is_dragging_self:
 		return
 	
-	# 销毁拖拽预览
-	if drag_preview and is_instance_valid(drag_preview):
+	if drag_preview && is_instance_valid(drag_preview):
 		drag_preview.queue_free()
 		drag_preview = null
 	
@@ -510,32 +525,25 @@ func end_drag() -> void:
 		cancel_drag()
 		return
 
-	print("[背包] 松开鼠标，当前拖拽物品：", dragging_item_data.name)
-
-	# ========== 优先判定：装备槽位 ==========
+	# 优先判定：装备槽位
 	var target_slot = get_slot_at_mouse()
 	if target_slot != null:
 		var place_ok = target_slot.equip_item(dragging_item_data)
 		if place_ok:
-			# 放置成功：物品从背包移除，结束拖拽
 			var drag_manager = get_drag_manager()
-			if drag_manager and drag_manager.is_dragging:
+			if drag_manager && drag_manager.is_dragging:
 				drag_manager.cancel_drag()
 			clear_drag_state()
 			queue_redraw()
-			print("[背包] ✅ 物品已放入槽位")
 			return
 		else:
-			# 放置失败：弹回原位
 			add_item(dragging_item_data, drag_start_cell, dragging_item_rotated)
 			var drag_manager = get_drag_manager()
-			if drag_manager and drag_manager.is_dragging:
+			if drag_manager && drag_manager.is_dragging:
 				drag_manager.cancel_drag()
 			clear_drag_state()
 			queue_redraw()
-			print("[背包] ❌ 槽位放置失败，物品弹回")
 			return
-	# ======================================
 
 	var drag_manager = get_drag_manager()
 	if drag_manager == null:
@@ -545,7 +553,7 @@ func end_drag() -> void:
 	var target_cell = hovered_cell
 	
 	# 放回当前容器
-	if target_cell != Vector2i(-1, -1) and can_place_item(dragging_item_data, target_cell):
+	if target_cell != Vector2i(-1, -1) && can_place_item(dragging_item_data, target_cell):
 		add_item(dragging_item_data, target_cell, dragging_item_rotated)
 		drag_manager.end_drag(self, target_cell)
 		clear_drag_state()
@@ -554,7 +562,7 @@ func end_drag() -> void:
 	
 	# 放到其他背包容器
 	var target_container = get_container_at_mouse()
-	if target_container and target_container != self:
+	if target_container && target_container != self:
 		if target_container.can_place_item(dragging_item_data, target_container.hovered_cell):
 			target_container.add_item(dragging_item_data, target_container.hovered_cell, dragging_item_rotated)
 			drag_manager.end_drag(target_container, target_container.hovered_cell)
@@ -571,7 +579,7 @@ func cancel_drag() -> void:
 		return
 	
 	var drag_manager = get_drag_manager()
-	if drag_manager and drag_manager.is_dragging:
+	if drag_manager && drag_manager.is_dragging:
 		drag_manager.cancel_drag()
 	
 	add_item(dragging_item_data, drag_start_cell, dragging_item_rotated)
@@ -581,14 +589,24 @@ func cancel_drag() -> void:
 func get_container_at_mouse() -> ColorRect:
 	var mouse_pos = get_global_mouse_position()
 	for node in get_tree().get_nodes_in_group("inventory_containers"):
-		if node is ColorRect and node != self and node.visible:
+		if node is ColorRect && node != self && node.visible:
 			if Rect2(node.global_position, node.size).has_point(mouse_pos):
 				return node
 	return null
 
-# 拖拽预览：自定义绘制+全局置顶，放置后自动销毁
+func get_slot_at_mouse() -> EquipSlot:
+	var mouse_pos = get_global_mouse_position()
+	var slots = get_tree().get_nodes_in_group("item_equip_slots")
+	
+	for node in slots:
+		if node is EquipSlot && node.visible:
+			if node.get_global_rect().grow(4.0).has_point(mouse_pos):
+				return node
+	return null
+
+# 拖拽预览
 func create_drag_preview(item: ItemResource) -> void:
-	if item == null or item.texture == null:
+	if item == null || item.texture == null:
 		return
 	
 	var preview_w = item.weight * cell_pixel_size
@@ -603,18 +621,15 @@ func create_drag_preview(item: ItemResource) -> void:
 	drag_preview.size = preview_size
 	drag_preview.modulate = Color(1, 1, 1, 0.85)
 	
-	# 和背包内完全一致的绘制逻辑，视觉无缝衔接
 	drag_preview.draw.connect(func():
 		var item_rect = Rect2(Vector2.ZERO, preview_size)
-		# 品质背景
 		var rarity_color = get_rarity_color(item)
 		if rarity_color.a > 0:
 			drag_preview.draw_rect(item_rect, rarity_color, true)
-		# 品质边框
-		drag_preview.draw_rect(item_rect, get_rarity_border_color(item), false, 2.0)
-		# 等比缩放纹理
+		drag_preview.draw_rect(item_rect, get_rarity_border_color(item), false, border_width)
+		
 		var tex_size = item.texture.get_size()
-		if tex_size.x > 0 and tex_size.y > 0:
+		if tex_size.x > 0 && tex_size.y > 0:
 			var fit_scale = min(preview_w / tex_size.x, preview_h / tex_size.y)
 			var tex_draw_size = tex_size * fit_scale
 			var draw_pos = Vector2(
@@ -651,13 +666,13 @@ func update_hover() -> void:
 		hovered_cell = new_hover
 
 # ===== 全局拖拽信号 =====
-func _on_drag_started(item_data: ItemResource, source_container: ColorRect) -> void:
+func _on_drag_started(item_data: ItemResource, source_container: Control) -> void:
 	is_global_dragging = true
 	global_drag_item = item_data
 	global_drag_source = source_container
 	queue_redraw()
 
-func _on_drag_ended(item_data: ItemResource, target_container: ColorRect, target_cell: Vector2i) -> void:
+func _on_drag_ended(item_data: ItemResource, target_container: Control, target_cell: Vector2i) -> void:
 	is_global_dragging = false
 	global_drag_item = null
 	global_drag_source = null
@@ -669,9 +684,9 @@ func _on_drag_cancelled(item_data: ItemResource) -> void:
 	global_drag_source = null
 	queue_redraw()
 
-# 统一状态清理：所有结束路径都销毁置顶预览
+# 统一状态清理
 func clear_drag_state() -> void:
-	if drag_preview and is_instance_valid(drag_preview):
+	if drag_preview && is_instance_valid(drag_preview):
 		drag_preview.queue_free()
 		drag_preview = null
 
@@ -697,7 +712,7 @@ func rotate_dragging_item() -> void:
 
 func rotate_item_at_cell(cell: Vector2i) -> void:
 	var item_data = get_item_at_cell(cell)
-	if item_data == null or item_data.is_empty():
+	if item_data == null || item_data.is_empty():
 		return
 	
 	var item = item_data["res"]
@@ -761,18 +776,9 @@ func is_cell_occupied_excluding_dragging(target: Vector2i) -> bool:
 		var pos = data["pos"]
 		var res = data["res"]
 		
-		if is_dragging_self and data.get("id", -1) == dragging_item_id:
+		if is_dragging_self && data.get("id", -1) == dragging_item_id:
 			continue
 		
-		var occupy = get_occupy_cells(pos, res)
-		if target in occupy:
-			return true
-	return false
-
-func is_cell_occupied(target: Vector2i, rotated: bool = false) -> bool:
-	for data in bag_items:
-		var pos = data["pos"]
-		var res = data["res"]
 		var occupy = get_occupy_cells(pos, res)
 		if target in occupy:
 			return true
@@ -781,7 +787,7 @@ func is_cell_occupied(target: Vector2i, rotated: bool = false) -> bool:
 func check_out_of_bounds(top_left: Vector2i, item: ItemResource) -> bool:
 	var max_col = top_left.x + item.weight - 1
 	var max_row = top_left.y + item.height - 1
-	return max_col >= grid_cols or max_row >= grid_rows or top_left.x < 0 or top_left.y < 0
+	return max_col >= grid_cols || max_row >= grid_rows || top_left.x < 0 || top_left.y < 0
 
 func get_occupy_cells(top_left: Vector2i, item: ItemResource) -> Array:
 	var cells = []
@@ -800,17 +806,3 @@ func clear_all_items() -> void:
 func _on_resized() -> void:
 	update_grid_size()
 	queue_redraw()
-# 获取鼠标位置下的装备槽位（全局矩形精准检测）
-func get_slot_at_mouse() -> EquipSlot:
-	var mouse_pos = get_global_mouse_position()
-	var slots = get_tree().get_nodes_in_group("item_equip_slots")
-	print("[背包] 检测槽位，组内节点总数：", slots.size())
-	
-	for node in slots:
-		if node is EquipSlot and node.visible:
-			var rect = node.get_global_rect()
-			if rect.has_point(mouse_pos):
-				print("[背包] ✅ 命中槽位：", node.name, " 矩形：", rect)
-				return node
-	print("[背包] ❌ 未命中任何槽位")
-	return null

@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dmhsokaxa7nse" path="res://Scencs/Item/water.tscn" id="6_yt5ef"]
 [ext_resource type="PackedScene" uid="uid://b0see3x6d1n1l" path="res://Scencs/Item/mp5.tscn" id="7_niow6"]
 [ext_resource type="Script" uid="uid://gn40jc8xcoa7" path="res://Seprint/EquipSlot.gd" id="9_kosg3"]
-[ext_resource type="Texture2D" uid="uid://dcs1hh44aa3nt" path="res://texture/防弹衣装备槽图片.png" id="9_r4358"]
-[ext_resource type="Texture2D" uid="uid://bwiaqm0ucbl1s" path="res://texture/头盔装备槽.png" id="10_4orq5"]
+[ext_resource type="PackedScene" uid="uid://dhj6vcmwnusw4" path="res://Scencs/Item/IND60.tscn" id="9_yt5ef"]
+[ext_resource type="PackedScene" uid="uid://cipkx3d27cyom" path="res://Scencs/Item/轻型防弹衣.tscn" id="10_r4358"]
 
 [node name="背包" type="Control" unique_id=882476158]
 layout_mode = 3
@@ -51,7 +51,7 @@ mouse_filter = 1
 color = Color(0, 0, 0, 0.44705883)
 script = ExtResource("1_o68oy")
 grid_rows = 20
-preset_item_list = Array[PackedScene]([ExtResource("5_kosg3"), ExtResource("6_yt5ef"), ExtResource("6_yt5ef"), ExtResource("5_kosg3"), ExtResource("5_kosg3"), ExtResource("6_iiux6"), ExtResource("7_niow6")])
+preset_item_list = Array[PackedScene]([ExtResource("5_kosg3"), ExtResource("6_yt5ef"), ExtResource("6_yt5ef"), ExtResource("5_kosg3"), ExtResource("5_kosg3"), ExtResource("6_iiux6"), ExtResource("7_niow6"), ExtResource("9_yt5ef"), ExtResource("10_r4358")])
 
 [node name="背包" type="Label" parent="背包" unique_id=1445864009]
 layout_mode = 1
@@ -197,11 +197,8 @@ offset_right = 75.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_r4358")
 expand_mode = 1
 script = ExtResource("9_kosg3")
-enable_type_filter = true
-accept_type = 0
 
 [node name="头盔" type="ColorRect" parent="Control" unique_id=2111686627]
 layout_mode = 1
@@ -237,11 +234,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_4orq5")
 expand_mode = 1
 script = ExtResource("9_kosg3")
-enable_type_filter = true
-accept_type = 0
 
 [node name="面部" type="ColorRect" parent="Control" unique_id=754356625]
 layout_mode = 1
@@ -344,8 +338,6 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 script = ExtResource("9_kosg3")
-enable_type_filter = true
-accept_type = 0
 
 [node name="武器槽2" type="ColorRect" parent="Control" unique_id=734284901]
 layout_mode = 1
@@ -387,5 +379,3 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 script = ExtResource("9_kosg3")
-enable_type_filter = true
-accept_type = 0

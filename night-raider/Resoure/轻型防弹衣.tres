@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cq5l1t6fhe3qr"]
+
+[ext_resource type="Script" uid="uid://cey8vv8li71fw" path="res://Seprint/Item_Resource.gd" id="1_q20yg"]
+[ext_resource type="Texture2D" uid="uid://dcs1hh44aa3nt" path="res://texture/防弹衣装备槽图片.png" id="2_seqsq"]
+[ext_resource type="Texture2D" uid="uid://bpy0ftbra2ody" path="res://texture/防弹衣Y.png" id="3_8sdo1"]
+
+[resource]
+script = ExtResource("1_q20yg")
+name = "轻型防弹衣"
+height = 4
+weight = 4
+texture = ExtResource("2_seqsq")
+textureY = ExtResource("3_8sdo1")
+"物品重量" = 10
+"物品等级" = 4
+metadata/_custom_type_script = "uid://cey8vv8li71fw"

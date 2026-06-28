@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://beshcevxdap2s"]
+
+[ext_resource type="Script" uid="uid://cey8vv8li71fw" path="res://Seprint/Item_Resource.gd" id="1_pdne8"]
+[ext_resource type="Texture2D" uid="uid://bwiaqm0ucbl1s" path="res://texture/头盔装备槽.png" id="2_j0e8g"]
+
+[resource]
+script = ExtResource("1_pdne8")
+name = "IND60"
+height = 2
+weight = 2
+texture = ExtResource("2_j0e8g")
+textureY = ExtResource("2_j0e8g")
+"物品等级" = 4
+metadata/_custom_type_script = "uid://cey8vv8li71fw"

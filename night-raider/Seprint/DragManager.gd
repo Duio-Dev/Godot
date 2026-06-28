@@ -5,17 +5,17 @@ var is_dragging: bool = false
 var dragging_item_data: ItemResource = null
 var dragging_item_id: int = -1
 var drag_start_cell: Vector2i = Vector2i(-1, -1)
-var drag_start_container: ColorRect = null
+var drag_start_container: Control = null  # 类型从ColorRect改为Control
 var drag_start_rotated: bool = false
 
-signal drag_started(item_data: ItemResource, source_container: ColorRect)
-signal drag_ended(item_data: ItemResource, target_container: ColorRect, target_cell: Vector2i)
+signal drag_started(item_data: ItemResource, source_container: Control)  # 类型修改
+signal drag_ended(item_data: ItemResource, target_container: Control, target_cell: Vector2i)  # 类型修改
 signal drag_cancelled(item_data: ItemResource)
 
 func _ready() -> void:
 	print("DragManager 已加载")
 
-func start_drag(item_data: ItemResource, item_id: int, start_cell: Vector2i, source_container: ColorRect, rotated: bool = false) -> void:
+func start_drag(item_data: ItemResource, item_id: int, start_cell: Vector2i, source_container: Control, rotated: bool = false) -> void:
 	is_dragging = true
 	dragging_item_data = item_data
 	dragging_item_id = item_id
@@ -25,7 +25,7 @@ func start_drag(item_data: ItemResource, item_id: int, start_cell: Vector2i, sou
 	drag_started.emit(item_data, source_container)
 	print("全局拖拽开始: ", item_data.name)
 
-func end_drag(target_container: ColorRect, target_cell: Vector2i) -> void:
+func end_drag(target_container: Control, target_cell: Vector2i) -> void:
 	if not is_dragging:
 		return
 	
