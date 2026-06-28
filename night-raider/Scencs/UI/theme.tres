@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://bx4tqfcr1xyyu"]
+
+[ext_resource type="Texture2D" uid="uid://deo0gvv7bmmd7" path="res://texture/Button.png" id="1_t7pua"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jb6af"]
+texture = ExtResource("1_t7pua")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_jb6af")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_jb6af")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_jb6af")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_jb6af")
+Button/styles/normal = SubResource("StyleBoxTexture_jb6af")

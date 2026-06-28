@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://btbjv4c05dkj6"]
+
+[ext_resource type="Script" uid="uid://cey8vv8li71fw" path="res://Seprint/Item_Resource.gd" id="1_bm8ao"]
+[ext_resource type="Texture2D" uid="uid://hkijknfskrdu" path="res://texture/dao.png" id="2_bm8ao"]
+[ext_resource type="Texture2D" uid="uid://b5yqrrub63k0x" path="res://texture/daoY.png" id="3_a4cx0"]
+
+[resource]
+script = ExtResource("1_bm8ao")
+name = "开山刀"
+height = 3
+texture = ExtResource("2_bm8ao")
+textureY = ExtResource("3_a4cx0")
+"物品重量" = 2
+"物品等级" = 4
+"is_刀具" = true
+"is_其他" = false
+"knife_伤害" = 32
+"knife_攻击速度" = 6.0
+"knife_攻击范围" = 3
+"knife_耐久度" = 100
+metadata/_custom_type_script = "uid://cey8vv8li71fw"

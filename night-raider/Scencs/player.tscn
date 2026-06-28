@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://dqsl3f0ddg0iq"]
+
+[ext_resource type="Script" uid="uid://c4pfqqv1ufqx8" path="res://Seprint/player.gd" id="1_aduom"]
+[ext_resource type="Texture2D" uid="uid://k4r3p6udlncb" path="res://texture/player-Sheet2.png" id="2_aduom"]
+[ext_resource type="Texture2D" uid="uid://dr6crtvfi7cnn" path="res://texture/player-Sheet.png" id="3_5p5if"]
+[ext_resource type="PackedScene" uid="uid://dw6uqm5lc1f5h" path="res://Scencs/UI/背包.tscn" id="4_ihaeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(10, 17)
+
+[sub_resource type="Animation" id="Animation_aduom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 17, 30, 17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_aduom")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_5p5if"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_5p5if")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 20, 17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ihaeo"]
+resource_name = "move"
+length = 0.5
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 17, 30, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_aduom")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.46),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihaeo"]
+_data = {
+&"RESET": SubResource("Animation_aduom"),
+&"idle": SubResource("Animation_5p5if"),
+&"move": SubResource("Animation_ihaeo")
+}
+
+[sub_resource type="Gradient" id="Gradient_ihaeo"]
+offsets = PackedFloat32Array(0, 0.0060241222, 0.36144578, 0.9879518, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.79518074, 0.79518074, 0.79518074, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mw0bs"]
+gradient = SubResource("Gradient_ihaeo")
+fill = 1
+fill_from = Vector2(0.526087, 0.49565217)
+fill_to = Vector2(0, 0)
+
+[node name="Player" type="CharacterBody2D" unique_id=670235181]
+collision_mask = 2
+script = ExtResource("1_aduom")
+move_speed = 100.0
+
+[node name="Player" type="Sprite2D" parent="." unique_id=1219182577]
+position = Vector2(0, -8.505)
+texture = ExtResource("2_aduom")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 17, 30, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1964980494]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=55376534]
+zoom = Vector2(5, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=376557834]
+libraries/ = SubResource("AnimationLibrary_ihaeo")
+autoplay = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1113608007]
+visible = false
+
+[node name="背包" parent="CanvasLayer" unique_id=882476158 instance=ExtResource("4_ihaeo")]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1360450232]
+position = Vector2(0, -8)
+energy = 2.25
+blend_mode = 2
+texture = SubResource("GradientTexture2D_mw0bs")
+texture_scale = 1.93
+height = 239.0

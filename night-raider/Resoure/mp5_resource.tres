@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bmorhbjil7n6r"]
+
+[ext_resource type="Script" uid="uid://cey8vv8li71fw" path="res://Seprint/Item_Resource.gd" id="1_c7nld"]
+[ext_resource type="Texture2D" uid="uid://btec1i2fjmnnt" path="res://texture/mp5.png" id="2_c7nld"]
+[ext_resource type="Texture2D" uid="uid://clb5cex6g4o6s" path="res://texture/mp5Y.png" id="3_r06it"]
+
+[resource]
+script = ExtResource("1_c7nld")
+name = "MP5"
+height = 2
+weight = 3
+texture = ExtResource("2_c7nld")
+textureY = ExtResource("3_r06it")
+"物品重量" = 5
+"is_枪" = true
+"is_其他" = false
+"gun_伤害" = 26
+"gun_弹匣容量" = 30
+"gun_射速" = 980.0
+"gun_有效射程" = 160
+"gun_弹药类型" = "9*19"
+metadata/_custom_type_script = "uid://cey8vv8li71fw"
