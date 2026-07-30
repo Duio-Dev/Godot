@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0cejhll5qqxl"]
+
+[ext_resource type="Texture2D" uid="uid://dr17a70g7wjeo" path="res://资产/物品/M4A1.png" id="1_aq148"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/ItemData.gd" id="2_s66d4"]
+
+[resource]
+script = ExtResource("2_s66d4")
+item_id = "M4A1无弹夹"
+item_name = "M4A1"
+icon = ExtResource("1_aq148")
+grid_width = 3
+grid_height = 2
+weight = 0.2
+max_stack = 0
+can_stack = false
+preferred_slot = 3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

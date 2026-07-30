@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://76fnwehnxrme"]
+
+[ext_resource type="Script" uid="uid://r3x48jnvvhe5" path="res://脚本/container_loot.gd" id="1_va32l"]
+
+[node name="ContainerLoot" type="Area2D" unique_id=1078231637]
+script = ExtResource("1_va32l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314882551]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500242652]

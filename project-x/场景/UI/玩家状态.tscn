@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dgs80gdgqf4i6"]
+
+[ext_resource type="Script" uid="uid://b2ssuq3in3vhp" path="res://脚本/玩家状态.gd" id="1_77ppl"]
+[ext_resource type="Texture2D" uid="uid://q46vepud378t" path="res://资产/其他/Sprite-0001-Sheet.png" id="2_mhhkf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
+atlas = ExtResource("2_mhhkf")
+region = Rect2(12, 0, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifow5"]
+atlas = ExtResource("2_mhhkf")
+region = Rect2(24, 7, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abi3o"]
+atlas = ExtResource("2_mhhkf")
+region = Rect2(60, 9, 3, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr1t6"]
+atlas = ExtResource("2_mhhkf")
+region = Rect2(38, 14, 4, 4)
+
+[node name="玩家状态" type="Control" unique_id=1681367928]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77ppl")
+
+[node name="耐力" type="ProgressBar" parent="." unique_id=1586989170]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 357.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 1)
+
+[node name="玩家健康" type="Control" parent="." unique_id=2091701839]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 322.0
+offset_right = 40.0
+offset_bottom = 362.0
+grow_vertical = 2
+scale = Vector2(10, 10)
+
+[node name="头部" type="TextureRect" parent="玩家健康" unique_id=1659738628]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 9.0
+texture = SubResource("AtlasTexture_wvhbo")
+stretch_mode = 5
+
+[node name="身体" type="TextureRect" parent="玩家健康" unique_id=535777985]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_top = 7.0
+offset_right = 12.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_ifow5")
+stretch_mode = 5
+
+[node name="左手" type="TextureRect" parent="玩家健康" unique_id=1130937953]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_top = 9.0
+offset_right = 3.0
+offset_bottom = 13.0
+texture = SubResource("AtlasTexture_abi3o")
+
+[node name="右手" type="TextureRect" parent="玩家健康" unique_id=2077490308]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 12.0
+offset_bottom = 13.0
+texture = SubResource("AtlasTexture_abi3o")
+flip_h = true
+
+[node name="左腿" type="TextureRect" parent="玩家健康" unique_id=1659937052]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 6.0
+offset_bottom = 19.0
+texture = SubResource("AtlasTexture_fr1t6")
+flip_h = true
+
+[node name="右腿" type="TextureRect" parent="玩家健康" unique_id=896453514]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 15.0
+offset_right = 10.0
+offset_bottom = 19.0
+texture = SubResource("AtlasTexture_fr1t6")
+flip_h = true

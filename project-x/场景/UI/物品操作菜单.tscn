@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dfmphfu50vxtj"]
+
+[ext_resource type="Texture2D" uid="uid://b8u86at88bea1" path="res://资产/其他/TX.png" id="1_vo0j8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifow5"]
+texture = ExtResource("1_vo0j8")
+region_rect = Rect2(8, 9, 18, 10)
+
+[node name="物品操作菜单" type="VBoxContainer" unique_id=1474633938]
+offset_right = 148.0
+offset_bottom = 221.0
+
+[node name="丢弃" type="Button" parent="." unique_id=2131478388]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ifow5")
+text = "丢弃"
+
+[node name="查看" type="Button" parent="." unique_id=429218126]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ifow5")
+text = "查看"
+
+[node name="卸下弹药" type="Button" parent="." unique_id=22996570]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ifow5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ifow5")
+text = "卸下弹药"

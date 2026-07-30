@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dbid5j18msqp"]
+
+[ext_resource type="Texture2D" uid="uid://bpxqxtiy4bf5n" path="res://资产/物品/饮料.png" id="1_8xj83"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/ItemData.gd" id="1_ki1rv"]
+
+[resource]
+script = ExtResource("1_ki1rv")
+item_id = "PJ_01"
+item_name = "啤酒"
+icon = ExtResource("1_8xj83")
+grid_height = 2
+weight = 0.2
+can_stack = false
+preferred_slot = 1
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

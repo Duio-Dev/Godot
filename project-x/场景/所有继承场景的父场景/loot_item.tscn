@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8tphuh6q0bk0"]
+
+[ext_resource type="Script" uid="uid://c0bupa1boig8i" path="res://脚本/loot_item.gd" id="1_td7mk"]
+
+[node name="LootItem" type="Area2D" unique_id=1521847288]
+script = ExtResource("1_td7mk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=993381698]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=374472026]

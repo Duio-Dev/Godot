@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwjtfn8gw25gu"]
+
+[ext_resource type="PackedScene" uid="uid://76fnwehnxrme" path="res://场景/所有继承场景的父场景/container_loot.tscn" id="1_a6uam"]
+[ext_resource type="Texture2D" uid="uid://cn6pfmcdfmgi5" path="res://资产/物品/delivery box.png" id="2_mirwb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_va32l"]
+radius = 30.066593
+
+[node name="快递箱" unique_id=1078231637 instance=ExtResource("1_a6uam")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1314882551]
+texture = ExtResource("2_mirwb")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=500242652]
+shape = SubResource("CircleShape2D_va32l")

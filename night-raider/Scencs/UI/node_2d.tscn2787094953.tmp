@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://mn3i6rapobit"]
-
-[ext_resource type="Script" uid="uid://b7l18jq5mpl2" path="res://Seprint/node_2d.gd" id="1_f3avv"]
-
-[node name="Node2D" type="Node2D" unique_id=1963109331]
-script = ExtResource("1_f3avv")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c8brgqa8m6gab"]
+
+[ext_resource type="Script" uid="uid://b3kp0q5e1pbqi" path="res://脚本/背包网格.gd" id="1_pmiby"]
+
+[node name="背包网格" type="ColorRect" unique_id=362233625]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -192.0
+offset_right = 320.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_pmiby")
+line_thickness = 2.0
+grid_color = Color(1, 1, 1, 1)
+bg_color = Color(0, 0, 0, 0.9019608)

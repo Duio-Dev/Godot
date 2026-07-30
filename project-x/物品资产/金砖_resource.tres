@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bebqcdcy0mdra"]
+
+[ext_resource type="Texture2D" uid="uid://dc3dewsit7tn5" path="res://资产/物品/金条.png" id="1_wtgxa"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/ItemData.gd" id="2_mu3te"]
+
+[resource]
+script = ExtResource("2_mu3te")
+item_id = "JZ_01"
+item_name = "金砖"
+icon = ExtResource("1_wtgxa")
+grid_width = 3
+grid_height = 2
+weight = 10.0
+quality = 5
+can_stack = false
+preferred_slot = 3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

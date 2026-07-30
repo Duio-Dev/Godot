@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://6y1ghmw5felm"]
+
+[ext_resource type="Script" uid="uid://qhqfw7pc38xv" path="res://脚本/物品.gd" id="1_hcd6w"]
+[ext_resource type="Texture2D" uid="uid://2wq8vsole4i2" path="res://570+Icons-v1.0.3/1.UI/search_64px.png" id="3_2xprd"]
+[ext_resource type="Texture2D" uid="uid://dr17a70g7wjeo" path="res://资产/物品/M4A1.png" id="4_cs2tm"]
+
+[node name="Item" type="Control" unique_id=241349216]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 184.0
+offset_bottom = 120.0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_hcd6w")
+search_icon = ExtResource("3_2xprd")
+
+[node name="物品品质" type="ColorRect" parent="." unique_id=1613303114]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="物品图标" type="TextureRect" parent="." unique_id=860350122]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cs2tm")
+stretch_mode = 5
+
+[node name="数量" type="Label" parent="." unique_id=1997844354]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+horizontal_alignment = 2
+
+[node name="物品名字" type="Label" parent="." unique_id=1634465312]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://r0qrfg2n5yyf"]
+
+[ext_resource type="PackedScene" uid="uid://76fnwehnxrme" path="res://场景/所有继承场景的父场景/container_loot.tscn" id="1_u88r2"]
+[ext_resource type="Texture2D" uid="uid://dohg04h6ksdyv" path="res://资产/物品/泡面桶.png" id="2_gbumm"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/ItemData.gd" id="2_owmjc"]
+[ext_resource type="Resource" uid="uid://bebqcdcy0mdra" path="res://物品资产/金砖_resource.tres" id="3_4m3uh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tad7c"]
+radius = 78.102486
+
+[node name="泡面桶" unique_id=1078231637 instance=ExtResource("1_u88r2")]
+scale = Vector2(0.1, 0.1)
+possible_items = Array[ExtResource("2_owmjc")]([ExtResource("3_4m3uh")])
+min_items = 17
+max_items = 17
+
+[node name="Sprite2D" parent="." index="0" unique_id=1314882551]
+texture = ExtResource("2_gbumm")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=500242652]
+shape = SubResource("CircleShape2D_tad7c")

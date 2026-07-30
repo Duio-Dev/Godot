@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d3plrbxotjm7x"]
+
+[ext_resource type="PackedScene" uid="uid://c8brgqa8m6gab" path="res://场景/UI/背包网格.tscn" id="1_skifd"]
+
+[node name="测试" type="Control" unique_id=793596499]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 118.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2067086076]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=872188267]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "口袋"
+
+[node name="背包网格" parent="." unique_id=362233625 instance=ExtResource("1_skifd")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 47.0
+offset_right = 640.0
+offset_bottom = 111.0
+grow_horizontal = 1
+grow_vertical = 1
+rows = 2
