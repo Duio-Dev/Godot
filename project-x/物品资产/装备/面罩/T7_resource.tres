@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b4dimo8usnh1u"]
+
+[ext_resource type="Texture2D" uid="uid://dtg0e0x2b4wgn" path="res://资产/物品/T7.png" id="1_76wue"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_76wue"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_3c5fi"]
+[ext_resource type="Texture2D" uid="uid://djdfuf1j8ndq8" path="res://资产/装备/T7.png" id="4_us5d4"]
+
+[resource]
+script = ExtResource("3_3c5fi")
+item_id = "T7"
+item_name = "T7"
+description = "一款双目热像仪。"
+icon = ExtResource("1_76wue")
+grid_width = 2
+weight = 0.5
+quality = 5
+can_stack = false
+weapon_part_type = 11
+compatible_receivers = Array[String](["IND_60T"])
+model_texture = ExtResource("1_76wue")
+visor_display_texture = ExtResource("4_us5d4")
+helmet_durability = 0.0
+visor_durability = 0.0
+helmet_ignore_chance = 0.0
+has_thermal_imaging = true
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

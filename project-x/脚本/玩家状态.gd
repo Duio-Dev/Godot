@@ -10,6 +10,8 @@ extends Control
 @onready var 右手: TextureRect = $玩家健康/右手
 @onready var 左腿: TextureRect = $玩家健康/左腿
 @onready var 右腿: TextureRect = $玩家健康/右腿
+@onready var 辐射噪点: ColorRect = $辐射噪点
+
 
 func _ready() -> void:
 	# 如果没有手动指定玩家，尝试自动查找
@@ -17,6 +19,16 @@ func _ready() -> void:
 		player = get_tree().get_first_node_in_group("Player")
 	if 耐力:
 		耐力.max_value = player.max_stamina if player else 100.0
+	
+	# 可选：确保辐射噪点 ColorRect 有正确的初始状态
+	if 辐射噪点:
+		辐射噪点.color = Color(1, 1, 1, 0)  # 完全透明，避免遮挡
+		# 确保材质存在（如果已经在编辑器中设置好了 ShaderMaterial 可跳过）
+		if not 辐射噪点.material or not 辐射噪点.material is ShaderMaterial:
+			var mat = ShaderMaterial.new()
+			# 如果需要自动创建着色器，请在此处加载或设置，但建议在编辑器中手动赋予
+			辐射噪点.material = mat
+
 
 func _process(delta: float) -> void:
 	if not player:
@@ -35,6 +47,11 @@ func _process(delta: float) -> void:
 	_update_part_color(左腿, player.left_foot_hp, player.max_left_foot_hp)
 	_update_part_color(右腿, player.right_foot_hp, player.max_right_foot_hp)
 
+	# 更新辐射噪点效果
+	if 辐射噪点 and 辐射噪点.material:
+		辐射噪点.material.set_shader_parameter("radiation_level", player.radiation)
+
+
 ## 根据血量百分比设置 TextureRect 的颜色
 func _update_part_color(part: TextureRect, current_hp: float, max_hp: float) -> void:
 	if not part:
@@ -48,5 +65,5 @@ func _update_part_color(part: TextureRect, current_hp: float, max_hp: float) -> 
 	if current_hp <= 0:
 		part.modulate = Color.BLACK
 	else:
-		# 血量从满到 0 由绿变红，归零时上面已处理为黑，但此处仍用 lerp 保证平滑
+		# 血量从满到 0 由绿变红
 		part.modulate = Color.GREEN.lerp(Color.RED, 1.0 - percent)

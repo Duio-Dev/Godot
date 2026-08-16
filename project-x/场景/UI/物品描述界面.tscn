@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c5csos6tb0fay"]
+
+[ext_resource type="Script" uid="uid://d1bom5j3odwrk" path="res://脚本/物品描述界面.gd" id="1_k6v8e"]
+
+[node name="物品描述界面" type="Control" unique_id=1794713574]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -250.0
+offset_right = 375.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k6v8e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=269997900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect" unique_id=813307524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ScrollContainer" unique_id=599004990]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://laccm35k1oj1"]
+
+[ext_resource type="Texture2D" uid="uid://dv3aga8glbd01" path="res://资产/装备/ZX.png" id="1_cre8p"]
+[ext_resource type="Texture2D" uid="uid://batmayi6ib75u" path="res://资产/物品/中型野战包.png" id="2_sde1n"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="3_xqdbp"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="4_4uyek"]
+
+[resource]
+script = ExtResource("4_4uyek")
+item_id = "中型野战背包"
+item_name = "中型野战背包"
+icon = ExtResource("2_sde1n")
+grid_width = 3
+grid_height = 3
+weight = 1.0
+can_stack = false
+preferred_slot = 3
+discard_scale = 0.15
+is_backpack = true
+backpack_grid_rows = 5
+backpack_display_texture = ExtResource("1_cre8p")
+backpack_display_offset = Vector2(-5, -4)
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

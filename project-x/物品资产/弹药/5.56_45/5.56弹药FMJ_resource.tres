@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bddgyq1c3hxru"]
+
+[ext_resource type="Texture2D" uid="uid://bq888hl02ab0p" path="res://资产/物品/5.56_45.png" id="1_rta6q"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_a1imh"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_npy7q"]
+
+[resource]
+script = ExtResource("2_npy7q")
+item_id = "5.56*45弹药"
+item_name = "5.56*45 FMJ"
+description = "由布伦沃克火器集团研发，常规全金属被甲制式步枪弹，铜合金被甲包裹铅质弹头，弹道平直、供弹稳定，适配绝大多数 5.56 口径枪械；性价比高，多用于日常射击训练，可穿透低等级护甲，侵彻稳定、弹头命中后不会扩张形变。"
+icon = ExtResource("1_rta6q")
+weight = 0.2
+quality = 2
+max_stack = 100000
+ammo_type = "5.56*45弹药"
+preferred_slot = 2
+flesh_damage = 20.0
+discard_scale = 0.003
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

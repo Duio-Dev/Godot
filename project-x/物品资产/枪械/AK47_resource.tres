@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b4flh7t66c10v"]
+
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_hkq8i"]
+[ext_resource type="Texture2D" uid="uid://dmko5knjo6ema" path="res://资产/物品/AK47.png" id="2_holdp"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_gmn7p"]
+[ext_resource type="PackedScene" uid="uid://dqw6o6rsvcchn" path="res://场景/武器/AK47.tscn" id="4_holdp"]
+[ext_resource type="PackedScene" uid="uid://rni5lbi364i5" path="res://场景/弹壳/5_56弹壳.tscn" id="4_xvwiw"]
+[ext_resource type="AudioStream" uid="uid://dl15lpfohwa67" path="res://资产/枪械音效/开火音效/消音开火音效_3.ogg" id="5_hkq8i"]
+[ext_resource type="Texture2D" uid="uid://bf5p20kb2beqe" path="res://资产/其他/PL2-Sheet.png" id="7_jgeqc"]
+
+[resource]
+script = ExtResource("3_gmn7p")
+item_id = "weapon_AK47"
+item_name = "AK47突击步枪"
+icon = ExtResource("2_holdp")
+grid_width = 4
+grid_height = 2
+weight = 3.0
+can_stack = false
+ammo_type = "7.62弹药"
+is_weapon = true
+weapon_id = "AK47"
+weapon_precision = 65
+shell_scene = ExtResource("4_xvwiw")
+shoot_sound = ExtResource("5_hkq8i")
+fire_rate_rpm = 650
+magazine_mount_offset = Vector2(103, 46.000004)
+magazine_display_size = Vector2(40, 51.999996)
+preferred_slot = 3
+weapon_scene = ExtResource("4_holdp")
+weapon_sprite = ExtResource("7_jgeqc")
+sight_display_size = Vector2(0, 0)
+discard_scale = 0.3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

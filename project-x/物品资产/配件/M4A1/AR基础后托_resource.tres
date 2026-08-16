@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbicauuegdw8i"]
+
+[ext_resource type="Texture2D" uid="uid://cdubntsyn7hgm" path="res://资产/武器/M4A1/M4A1HT.png" id="2_3ow44"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_3romo"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_3ow44"]
+
+[resource]
+script = ExtResource("3_3ow44")
+item_id = "M4A1_sto"
+item_name = "AR基础后托"
+icon = ExtResource("2_3ow44")
+grid_width = 2
+weight = 0.5
+can_stack = false
+weapon_part_type = 3
+compatible_receivers = Array[String](["m4a1_receiver"])
+model_texture = ExtResource("2_3ow44")
+discard_scale = 0.5
+grid_width_increase = 1
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

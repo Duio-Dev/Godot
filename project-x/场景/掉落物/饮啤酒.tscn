@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4fay6ns17xan"]
 
 [ext_resource type="PackedScene" uid="uid://c8tphuh6q0bk0" path="res://场景/所有继承场景的父场景/loot_item.tscn" id="1_iqxik"]
-[ext_resource type="Resource" uid="uid://dbid5j18msqp" path="res://物品资产/啤酒_resource.tres" id="2_s5ek2"]
+[ext_resource type="Resource" uid="uid://dbid5j18msqp" path="res://物品资产/饮食/啤酒_resource.tres" id="2_s5ek2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wvhbo"]
 radius = 7.0

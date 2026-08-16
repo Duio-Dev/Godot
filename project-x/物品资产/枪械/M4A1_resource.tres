@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0cejhll5qqxl"]
+
+[ext_resource type="Texture2D" uid="uid://bdlcrmfkaed2d" path="res://资产/武器/M4A1/M4A1JX.png" id="1_tyr5b"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_tyr5b"]
+[ext_resource type="Resource" uid="uid://sg4cv1u34jss" path="res://配件资产/M4A1上机匣_resource.tres" id="3_hjbst"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_vi4sb"]
+[ext_resource type="PackedScene" uid="uid://rni5lbi364i5" path="res://场景/弹壳/5_56弹壳.tscn" id="4_0t546"]
+[ext_resource type="Resource" uid="uid://cdjghaukyvyem" path="res://配件资产/M4A1弹匣_resource.tres" id="4_vi4sb"]
+[ext_resource type="Resource" uid="uid://bejrlkctsa1po" path="res://配件资产/AR专用后握把_resource.tres" id="5_0t546"]
+[ext_resource type="AudioStream" uid="uid://0jd45psycr8x" path="res://资产/枪械音效/开火音效/消音开火音效_1.wav" id="5_hvg8k"]
+[ext_resource type="Texture2D" uid="uid://cdubntsyn7hgm" path="res://资产/武器/M4A1/M4A1HT.png" id="6_hvg8k"]
+[ext_resource type="PackedScene" uid="uid://b6mbkokg66yhd" path="res://场景/武器/m_4a_1.tscn" id="6_xm0d0"]
+[ext_resource type="Texture2D" uid="uid://dpig7ctlogu6t" path="res://资产/武器/M4A1/M4A1QG.png" id="7_xm0d0"]
+[ext_resource type="Texture2D" uid="uid://j1fmwsm6y8md" path="res://资产/物品/HD.png" id="8_s51v6"]
+[ext_resource type="Texture2D" uid="uid://bevjskuu10dpx" path="res://资产/其他/Sprite-0002-Sheet.png" id="13_s51v6"]
+
+[sub_resource type="Resource" id="Resource_fiw78"]
+script = ExtResource("2_tyr5b")
+slot_name = "后托接口"
+slot_type = 3
+mount_offset = Vector2(27.255, 7.57)
+preview_texture = ExtResource("6_hvg8k")
+preview_size = Vector2(15, 15)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"
+
+[sub_resource type="Resource" id="Resource_yb65l"]
+script = ExtResource("2_tyr5b")
+slot_name = "枪管接口"
+slot_type = 6
+mount_offset = Vector2(-10.935, 0)
+preview_texture = ExtResource("7_xm0d0")
+preview_size = Vector2(26.69, 12.44)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"
+
+[sub_resource type="Resource" id="Resource_myc1f"]
+script = ExtResource("2_tyr5b")
+slot_name = "瞄具导轨"
+slot_type = 8
+mount_offset = Vector2(5.23, -4.145)
+parent_slot_name = "上机匣接口"
+preview_texture = ExtResource("8_s51v6")
+preview_size = Vector2(3, 1)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"
+
+[resource]
+script = ExtResource("3_vi4sb")
+item_id = "m4a1_receiver"
+item_name = "M4A1卡宾枪"
+description = "由斯坎兰布伦沃克火器集团（Colt）研制M4卡宾枪的一种改进型。"
+icon = ExtResource("1_tyr5b")
+grid_width = 2
+weight = 0.2
+can_stack = false
+ammo_type = "5.56*45弹药"
+is_weapon = true
+weapon_id = "M4A1"
+weapon_precision = 75
+shell_scene = ExtResource("4_0t546")
+shoot_sound = ExtResource("5_hvg8k")
+fire_rate_rpm = 950
+magazine_mount_offset = Vector2(65, 70)
+magazine_display_size = Vector2(27, 52)
+ergonomics = 75.0
+preferred_slot = 3
+weapon_scene = ExtResource("6_xm0d0")
+weapon_sprite = ExtResource("13_s51v6")
+equip_time = 0.5
+unequip_time = 0.5
+reload_time_full = 0.9
+reload_time_tactical = 0.5
+weapon_part_type = 1
+receiver_slots = Array[ExtResource("2_tyr5b")]([ExtResource("3_hjbst"), ExtResource("4_vi4sb"), ExtResource("5_0t546"), SubResource("Resource_fiw78"), SubResource("Resource_yb65l"), SubResource("Resource_myc1f")])
+sight_display_size = Vector2(0, 0)
+discard_scale = 0.3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

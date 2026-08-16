@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dbp0fnfkfbn0u"]
+
+[ext_resource type="Texture2D" uid="uid://dy672ns00fljg" path="res://资产/物品/mp_40DX.png" id="1_buppn"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_j31u4"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_y125o"]
+
+[resource]
+script = ExtResource("2_j31u4")
+item_id = "MP40弹夹"
+item_name = "MP40弹夹"
+description = "作为MP40的专属弹匣，容量较少"
+icon = ExtResource("1_buppn")
+grid_height = 2
+weight = 0.2
+can_stack = false
+is_magazine = true
+magazine_capacity = 20
+ammo_type = "7.62*39弹药"
+weapon_id = "MP40"
+preferred_slot = 2
+discard_scale = 0.3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

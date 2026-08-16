@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dn7sgd3pq7vbf"]
+
+[ext_resource type="Texture2D" uid="uid://bwt58pq7yf2s4" path="res://资产/武器/M4A1/M4A1WB.png" id="1_l8pvp"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="1_pfg0u"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_l8pvp"]
+
+[resource]
+script = ExtResource("2_l8pvp")
+item_id = "M4A1_pis"
+item_name = "AR专用后握把"
+description = "AR类枪械的专用后握把"
+icon = ExtResource("1_l8pvp")
+weight = 1.0
+can_stack = false
+weapon_part_type = 4
+compatible_receivers = Array[String](["m4a1_receiver"])
+model_texture = ExtResource("1_l8pvp")
+discard_scale = 0.5
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

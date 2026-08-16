@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b7ogehin5f2wi"]
+
+[ext_resource type="Texture2D" uid="uid://dlnbi576ocqgk" path="res://资产/物品/M4AI弹夹.png" id="1_yyfel"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_3x2pd"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_mp4mv"]
+
+[resource]
+script = ExtResource("2_mp4mv")
+item_id = "m4a1_mag"
+item_name = "M4A1弹夹"
+description = "M4A1专属弹匣，为标准30发容量"
+icon = ExtResource("1_yyfel")
+grid_height = 2
+weight = 0.2
+can_stack = false
+is_magazine = true
+ammo_type = "5.56*45弹药"
+weapon_id = "M4A1"
+preferred_slot = 2
+weapon_part_type = 9
+compatible_receivers = Array[String](["m4a1_receiver"])
+model_texture = ExtResource("1_yyfel")
+discard_scale = 0.3
+grid_height_increase = 1
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bhb83x3rb3gyy"]
+
+[ext_resource type="Texture2D" uid="uid://dhe0r18vd5lqh" path="res://资产/物品/7.62_39.png" id="1_2ec0j"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_6njer"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_y1nw4"]
+
+[resource]
+script = ExtResource("2_6njer")
+item_id = "7.62*39弹药"
+item_name = "7.62*39 LP"
+icon = ExtResource("1_2ec0j")
+weight = 0.2
+max_stack = 10000
+ammo_type = "7.62*39弹药"
+preferred_slot = 2
+armor_damage = 13.0
+flesh_damage = 25.0
+discard_scale = 0.003
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

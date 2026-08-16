@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BuffData" format=3 uid="uid://bjv1564neglmh"]
+
+[ext_resource type="Script" uid="uid://dir43daydr68d" path="res://脚本/资源脚本/BuffData.gd" id="1_4v8h6"]
+
+[resource]
+script = ExtResource("1_4v8h6")
+type = 2
+value = 20.0
+duration = 180.0
+metadata/_custom_type_script = "uid://dir43daydr68d"

@@ -7,6 +7,7 @@
 radius = 30.066593
 
 [node name="快递箱" unique_id=1078231637 instance=ExtResource("1_a6uam")]
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" parent="." index="0" unique_id=1314882551]
 texture = ExtResource("2_mirwb")

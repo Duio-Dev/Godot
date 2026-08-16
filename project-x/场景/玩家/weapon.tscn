@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dn17lnoqyhtct"]
+
+[ext_resource type="Texture2D" uid="uid://dquha2vxxd1m5" path="res://资产/物品/M4AI有弹夹.png" id="1_oxhn6"]
+
+[node name="Weapon" type="Marker2D" unique_id=1960564024]
+
+[node name="M4ai有弹夹" type="Sprite2D" parent="." unique_id=1770568150]
+position = Vector2(4, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_oxhn6")
+flip_h = true

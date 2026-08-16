@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0fvggt4p3ocx"]
+
+[ext_resource type="Texture2D" uid="uid://r4ehs3b2ghop" path="res://资产/物品/First Aid Kit.png" id="1_3fxgc"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_2p4vi"]
+[ext_resource type="PackedScene" uid="uid://1nyjbr5jfgx" path="res://场景/医疗/医疗_急救包.tscn" id="2_yunlt"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="3_xjpt5"]
+[ext_resource type="Texture2D" uid="uid://bevjskuu10dpx" path="res://资产/其他/Sprite-0002-Sheet.png" id="5_xjpt5"]
+
+[resource]
+script = ExtResource("2_2p4vi")
+item_id = "医疗_中型急救包"
+item_name = "STL_急救包"
+description = "由百年老牌药企 Aether‑Pharma 埃瑟制药研发，专为军警、野外作业人员打造的战术急救包，内部配有止血敷料、消炎药剂、缝合工具以及配套 STO 缓释止痛片。能够处理擦伤、穿刺伤、撕裂伤，快速恢复生命值，使用过后存在短暂疲惫 debuff，属于地图当中高阶的医疗物资。"
+icon = ExtResource("1_3fxgc")
+grid_width = 2
+grid_height = 2
+weight = 0.2
+can_stack = false
+preferred_slot = 2
+discard_scale = 0.3
+discard_collision_radius = 10.0
+is_medical = true
+medical_scene = ExtResource("2_yunlt")
+medical_animation = "医疗"
+activation_time = 1.0
+treatment_duration = 4.0
+use_sprite = ExtResource("5_xjpt5")
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

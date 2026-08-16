@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponSlot" format=3 uid="uid://bejrlkctsa1po"]
+
+[ext_resource type="Texture2D" uid="uid://bwt58pq7yf2s4" path="res://资产/武器/M4A1/M4A1WB.png" id="1_cr45c"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_gme3d"]
+
+[resource]
+script = ExtResource("2_gme3d")
+slot_name = "后握把接口"
+slot_type = 4
+mount_offset = Vector2(15.865, 14.515)
+preview_texture = ExtResource("1_cr45c")
+preview_size = Vector2(8.665, 11.04)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"

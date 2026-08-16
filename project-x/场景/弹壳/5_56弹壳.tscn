@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://rni5lbi364i5"]
+
+[ext_resource type="Texture2D" uid="uid://bkir5t6ul1dcf" path="res://资产/物品/5.56DY.png" id="1_q20kr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
+atlas = ExtResource("1_q20kr")
+region = Rect2(0, 15, 15, 34)
+
+[node name="5_56弹壳" type="Node2D" unique_id=236536000]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121636443]
+rotation = -1.5707964
+scale = Vector2(0.05, 0.05)
+texture = SubResource("AtlasTexture_wvhbo")

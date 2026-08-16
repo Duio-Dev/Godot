@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://3dbljghmurn6" path="res://570+Icons-v1.0.3/7.Nature & Food/bread_64px.png" id="4_b8bik"]
 [ext_resource type="Texture2D" uid="uid://b65w1pirpu5ep" path="res://570+Icons-v1.0.3/5.Game/stamina_64px.png" id="5_npdmn"]
 [ext_resource type="Texture2D" uid="uid://bdfv75csql4p6" path="res://570+Icons-v1.0.3/6.Items/anvil_64px.png" id="6_tbexg"]
-[ext_resource type="Texture2D" uid="uid://smeumvqq03ud" path="res://资产/物品/耳机.png" id="7_qu1ah"]
+[ext_resource type="Texture2D" uid="uid://blkdf2i3rl2om" path="res://570+Icons-v1.0.3/2.Media & Technology/headset_64px.png" id="7_cdb0c"]
+[ext_resource type="Texture2D" uid="uid://ca6bitcsjywr8" path="res://资产/状态/辐射值图标.png" id="8_b8aa7"]
 [ext_resource type="Texture2D" uid="uid://q46vepud378t" path="res://资产/其他/Sprite-0001-Sheet.png" id="8_cdb0c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoqoj"]
@@ -30,7 +31,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+mouse_filter = 1
+color = Color(0, 0, 0, 0.9098039)
 
 [node name="健康与装备部分" type="ScrollContainer" parent="." unique_id=564891946]
 layout_mode = 0
@@ -119,10 +121,46 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="健康与装备部分/VBoxContainer/HBoxContainer2/听力" unique_id=1384724961]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("7_qu1ah")
+texture = ExtResource("7_cdb0c")
 
 [node name="听力值" type="Label" parent="健康与装备部分/VBoxContainer/HBoxContainer2/听力" unique_id=1528127031]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "0/35"
+
+[node name="辐射" type="HBoxContainer" parent="健康与装备部分/VBoxContainer/HBoxContainer2" unique_id=519097081]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/HBoxContainer2/辐射" unique_id=354439739]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="健康与装备部分/VBoxContainer/HBoxContainer2/辐射/ColorRect" unique_id=1495684795]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 410.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource("8_b8aa7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="辐射值" type="Label" parent="健康与装备部分/VBoxContainer/HBoxContainer2/辐射/ColorRect/TextureRect" unique_id=68685148]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -14.0
+offset_right = 61.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0/35"
@@ -173,6 +211,7 @@ offset_right = 109.0
 offset_bottom = 51.0
 
 [node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control/头部" unique_id=88966004]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,7 +220,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control/头部/ColorRect" unique_id=1125881104]
+[node name="头部标题" type="Label" parent="健康与装备部分/VBoxContainer/Control/头部/ColorRect" unique_id=1125881104]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -222,7 +261,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control/身体/ColorRect" unique_id=474707554]
+[node name="身体标题" type="Label" parent="健康与装备部分/VBoxContainer/Control/身体/ColorRect" unique_id=474707554]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -263,7 +302,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control/左脚/ColorRect" unique_id=1545163964]
+[node name="左脚标题" type="Label" parent="健康与装备部分/VBoxContainer/Control/左脚/ColorRect" unique_id=1545163964]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -304,7 +343,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control/右脚/ColorRect" unique_id=1857745582]
+[node name="右脚标题" type="Label" parent="健康与装备部分/VBoxContainer/Control/右脚/ColorRect" unique_id=1857745582]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -345,7 +384,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control/右手/ColorRect" unique_id=1673892546]
+[node name="右手标题" type="Label" parent="健康与装备部分/VBoxContainer/Control/右手/ColorRect" unique_id=1673892546]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -386,7 +425,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control/左手/ColorRect" unique_id=1872949287]
+[node name="左手标题" type="Label" parent="健康与装备部分/VBoxContainer/Control/左手/ColorRect" unique_id=1872949287]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -411,9 +450,313 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "100/100"
 
+[node name="状态显示" type="Label" parent="健康与装备部分/VBoxContainer" unique_id=635313598]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "获得的状态："
+
 [node name="Control2" type="Control" parent="健康与装备部分/VBoxContainer" unique_id=1478316919]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="健康与装备部分/VBoxContainer/Control2" unique_id=1091016904]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -191.0
+offset_right = -36.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer" unique_id=10252523]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect" unique_id=60896088]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="头盔装备槽" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect/ColorRect" unique_id=93057638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect" unique_id=117694581]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_vertical = 2
+text = "头盔"
+
+[node name="ColorRect2" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer" unique_id=1094550166]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect2" unique_id=439082532]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="护甲装备槽" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect2/ColorRect" unique_id=976140137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect2" unique_id=333990200]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_vertical = 2
+text = "护甲"
+
+[node name="ColorRect3" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer" unique_id=76373842]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect3" unique_id=968640059]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="头盔装备槽" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect3/ColorRect" unique_id=118269449]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect3" unique_id=1823209094]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_vertical = 2
+text = "耳机"
+
+[node name="ColorRect4" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer" unique_id=354355962]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect4" unique_id=2097928373]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="头盔装备槽" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect4/ColorRect" unique_id=553998569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control2/GridContainer/ColorRect4" unique_id=1715114666]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_vertical = 2
+text = "面罩"
+
+[node name="武器装备槽" type="Control" parent="健康与装备部分/VBoxContainer/Control2" unique_id=1300011808]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -173.5
+offset_right = 25.0
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="主武器" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽" unique_id=1115618556]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -86.5
+offset_right = 64.0
+offset_bottom = -22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="主武器2" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽/主武器" unique_id=1059595528]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -27.0
+offset_right = 59.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3180198, 0.31801978, 0.31801975, 1)
+
+[node name="主武器装备槽" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽/主武器/主武器2" unique_id=1244125117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽/主武器" unique_id=248263416]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -2.0
+offset_right = 24.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "主武器"
+
+[node name="副武器" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽" unique_id=1965234918]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 5.5
+offset_right = 64.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="副武器2" type="ColorRect" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽/副武器" unique_id=525559732]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -27.0
+offset_right = 59.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+
+[node name="副武器装备槽" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽/副武器/副武器2" unique_id=153930668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="健康与装备部分/VBoxContainer/Control2/武器装备槽/副武器" unique_id=1785745594]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -2.0
+offset_right = 24.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "副武器"
+
+[node name="玩家预览" type="TextureRect" parent="健康与装备部分/VBoxContainer/Control2" unique_id=1066396370]
+layout_mode = 0
+offset_right = 217.0
+offset_bottom = 470.0
 
 [node name="背包部分" type="ScrollContainer" parent="." unique_id=1760020951]
 layout_mode = 1
@@ -453,9 +796,10 @@ text = "口袋"
 layout_mode = 1
 offset_left = -323.0
 offset_top = 50.0
-offset_right = 317.0
-offset_bottom = 114.0
-rows = 1
+offset_right = -3.0
+offset_bottom = 178.0
+columns = 5
+rows = 2
 
 [node name="胸挂部分" type="Control" parent="背包部分/VBoxContainer" unique_id=917368866]
 layout_mode = 2
@@ -556,10 +900,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="背包部分/VBoxContainer/背包部分/ColorRect2/ColorRect3" unique_id=979005825]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="背包装备槽" type="TextureRect" parent="背包部分/VBoxContainer/背包部分/ColorRect2/ColorRect3" unique_id=979005825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
 
 [node name="背包网格" parent="背包部分/VBoxContainer/背包部分" unique_id=1705622757 instance=ExtResource("1_m0xae")]
 layout_mode = 1
@@ -599,7 +947,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="容器部分/Control/ColorRect" unique_id=1768110566]
+[node name="容器名称" type="Label" parent="容器部分/Control/ColorRect" unique_id=1768110566]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 40.0

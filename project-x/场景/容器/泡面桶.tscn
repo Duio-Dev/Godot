@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://76fnwehnxrme" path="res://场景/所有继承场景的父场景/container_loot.tscn" id="1_u88r2"]
 [ext_resource type="Texture2D" uid="uid://dohg04h6ksdyv" path="res://资产/物品/泡面桶.png" id="2_gbumm"]
-[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/ItemData.gd" id="2_owmjc"]
-[ext_resource type="Resource" uid="uid://bebqcdcy0mdra" path="res://物品资产/金砖_resource.tres" id="3_4m3uh"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_owmjc"]
+[ext_resource type="Resource" uid="uid://bebqcdcy0mdra" path="res://物品资产/杂物/金砖_resource.tres" id="3_4m3uh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tad7c"]
 radius = 78.102486

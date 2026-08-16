@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cayrlxim5342c"]
+
+[ext_resource type="Texture2D" uid="uid://bq888hl02ab0p" path="res://资产/物品/5.56_45.png" id="1_u0t82"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_8m54u"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_va5qg"]
+
+[resource]
+script = ExtResource("2_8m54u")
+item_id = "5.56*45弹药"
+item_name = "5.56*45 HP"
+icon = ExtResource("1_u0t82")
+weight = 0.2
+quality = 1
+max_stack = 10000
+ammo_type = "5.56*45弹药"
+preferred_slot = 2
+armor_damage = 0.0
+flesh_damage = 100.0
+discard_scale = 0.003
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

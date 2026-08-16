@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bp8qasv65qqbw"]
+
+[ext_resource type="Texture2D" uid="uid://dvt60rt1hsi2t" path="res://资产/物品/简易手术包.png" id="2_2naw7"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_kemq1"]
+[ext_resource type="PackedScene" uid="uid://3qecuboo1btk" path="res://场景/医疗/医疗_简易手术包.tscn" id="2_xv6h7"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="3_xv6h7"]
+[ext_resource type="Texture2D" uid="uid://bevjskuu10dpx" path="res://资产/其他/Sprite-0002-Sheet.png" id="5_xv6h7"]
+
+[resource]
+script = ExtResource("2_kemq1")
+item_id = "医疗_简易手术包"
+item_name = "简易手术包"
+description = "一个比较简单的手术包可以缓解骨折带来的疼痛"
+icon = ExtResource("2_2naw7")
+grid_width = 2
+weight = 0.1
+can_stack = false
+discard_scale = 0.3
+is_medical = true
+medical_scene = ExtResource("2_xv6h7")
+medical_animation = "打药"
+is_surgery_kit = true
+can_heal_limb = true
+limb_heal_max_penalty = 4.0
+medical_durability = 4.0
+treatment_duration = 1.8
+use_sprite = ExtResource("5_xv6h7")
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

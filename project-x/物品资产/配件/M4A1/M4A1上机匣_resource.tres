@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jmpjnhnuiwv3"]
+
+[ext_resource type="Texture2D" uid="uid://be1tpj11k8l6w" path="res://资产/武器/M4A1/M4A1SJX.png" id="2_5uvyy"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_d0euk"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_5uvyy"]
+
+[resource]
+script = ExtResource("3_5uvyy")
+item_id = "m4a1_upper"
+item_name = "M4A1 上机匣"
+icon = ExtResource("2_5uvyy")
+grid_width = 2
+weight = 0.5
+can_stack = false
+weapon_part_type = 2
+compatible_receivers = Array[String](["m4a1_receiver"])
+model_texture = ExtResource("2_5uvyy")
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponSlot" format=3 uid="uid://ltj2fgnoj8m0"]
+
+[ext_resource type="Texture2D" uid="uid://u65162kbmrli" path="res://资产/物品/KD8C.png" id="1_k3wwo"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_0si3p"]
+
+[resource]
+script = ExtResource("2_0si3p")
+slot_name = "面罩"
+slot_type = 11
+mount_offset = Vector2(25.78, 36.01)
+preview_texture = ExtResource("1_k3wwo")
+preview_size = Vector2(60, 60)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"

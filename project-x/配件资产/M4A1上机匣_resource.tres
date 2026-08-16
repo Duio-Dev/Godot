@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponSlot" format=3 uid="uid://sg4cv1u34jss"]
+
+[ext_resource type="Texture2D" uid="uid://be1tpj11k8l6w" path="res://资产/武器/M4A1/M4A1SJX.png" id="1_h81oh"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="1_rd5pv"]
+
+[resource]
+script = ExtResource("1_rd5pv")
+slot_name = "上机匣接口"
+slot_type = 2
+mount_offset = Vector2(8.495, 0)
+preview_texture = ExtResource("1_h81oh")
+preview_size = Vector2(16.43, 5.78)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"

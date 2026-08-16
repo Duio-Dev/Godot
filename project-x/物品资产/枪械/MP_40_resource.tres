@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dmxbgx60gj5v1"]
+
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="1_nhyxq"]
+[ext_resource type="Texture2D" uid="uid://duaniqj2j5lrc" path="res://资产/物品/mp_40.png" id="1_xf1q8"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_bm1s1"]
+[ext_resource type="PackedScene" uid="uid://rni5lbi364i5" path="res://场景/弹壳/5_56弹壳.tscn" id="3_8hik7"]
+[ext_resource type="AudioStream" uid="uid://dhx7hhhk14q6h" path="res://资产/枪械音效/开火音效/MP40枪声.mp3" id="4_8hik7"]
+[ext_resource type="PackedScene" uid="uid://dqo0gjhc0yunp" path="res://场景/武器/MP40.tscn" id="5_8hik7"]
+[ext_resource type="Texture2D" uid="uid://bf5p20kb2beqe" path="res://资产/其他/PL2-Sheet.png" id="5_cxvg0"]
+
+[resource]
+script = ExtResource("1_nhyxq")
+item_id = "枪械_MP40"
+item_name = "MP40"
+description = "MP40冲锋枪是布伦沃克火器集团为方便大量生产而设计、与传统枪械制造观念不同的冲锋枪。"
+icon = ExtResource("1_xf1q8")
+grid_width = 3
+grid_height = 2
+weight = 3.0
+ammo_type = "7.62*39弹药"
+is_weapon = true
+weapon_id = "MP40"
+shell_scene = ExtResource("3_8hik7")
+shoot_sound = ExtResource("4_8hik7")
+fire_rate_rpm = 750
+magazine_mount_offset = Vector2(65.715, 67.28)
+magazine_display_size = Vector2(28.4, 50)
+ergonomics = 55.0
+preferred_slot = 3
+weapon_scene = ExtResource("5_8hik7")
+weapon_sprite = ExtResource("5_cxvg0")
+reload_time_full = 1.0
+reload_time_tactical = 0.6
+sight_mount_position = Vector2(25, 0)
+discard_scale = 0.3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

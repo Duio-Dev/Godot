@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://sdxvfsmtbrge"]
+
+[ext_resource type="Texture2D" uid="uid://7n522nh0cud2" path="res://资产/物品/大粪.png" id="1_yjv6w"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_ai0si"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_apghw"]
+
+[resource]
+script = ExtResource("2_ai0si")
+item_id = "杂物_大粪"
+item_name = "大粪"
+icon = ExtResource("1_yjv6w")
+grid_width = 2
+grid_height = 2
+weight = 1.0
+quality = 5
+discard_scale = 0.3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

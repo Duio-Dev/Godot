@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dgmuwr43y38kb"]
+
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="1_rxue6"]
+[ext_resource type="Texture2D" uid="uid://4grsp3v1n7n3" path="res://资产/物品/IND_60T.png" id="1_slrlc"]
+[ext_resource type="Texture2D" uid="uid://bfespjxh6y1dl" path="res://资产/装备/IND_60T.png" id="1_x3r4v"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_slrlc"]
+[ext_resource type="Resource" uid="uid://ltj2fgnoj8m0" path="res://配件资产/KD8_resource.tres" id="5_otqlj"]
+[ext_resource type="Texture2D" uid="uid://dltchyndmrw7w" path="res://资产/装备/KD8C.png" id="6_l4v2u"]
+
+[resource]
+script = ExtResource("2_slrlc")
+item_id = "IND_60T"
+item_name = "IND_60T"
+description = "由TC军工生成的一款防弹极好的头盔，常常被装备于各大部队。"
+icon = ExtResource("1_slrlc")
+grid_width = 2
+grid_height = 2
+weight = 2.5
+quality = 2
+can_stack = false
+weapon_part_type = 10
+receiver_slots = Array[ExtResource("1_rxue6")]([ExtResource("5_otqlj")])
+discard_scale = 0.15
+helmet_display_texture = ExtResource("1_x3r4v")
+visor_display_texture = ExtResource("6_l4v2u")
+helmet_durability = 35.0
+visor_durability = 0.0
+helmet_ignore_chance = 0.0
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

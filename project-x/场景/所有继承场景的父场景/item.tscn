@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://6y1ghmw5felm"]
 
 [ext_resource type="Script" uid="uid://qhqfw7pc38xv" path="res://脚本/物品.gd" id="1_hcd6w"]
+[ext_resource type="Resource" uid="uid://0cejhll5qqxl" path="res://物品资产/枪械/M4A1_resource.tres" id="2_6c14j"]
 [ext_resource type="Texture2D" uid="uid://2wq8vsole4i2" path="res://570+Icons-v1.0.3/1.UI/search_64px.png" id="3_2xprd"]
-[ext_resource type="Texture2D" uid="uid://dr17a70g7wjeo" path="res://资产/物品/M4A1.png" id="4_cs2tm"]
+[ext_resource type="Texture2D" uid="uid://bdlcrmfkaed2d" path="res://资产/武器/M4A1/M4A1JX.png" id="4_6c14j"]
+[ext_resource type="Texture2D" uid="uid://dlnbi576ocqgk" path="res://资产/物品/M4AI弹夹.png" id="5_ahvj4"]
+[ext_resource type="Texture2D" uid="uid://j1fmwsm6y8md" path="res://资产/物品/HD.png" id="6_6c14j"]
+[ext_resource type="Texture2D" uid="uid://be1tpj11k8l6w" path="res://资产/武器/M4A1/M4A1SJX.png" id="7_ahvj4"]
 
 [node name="Item" type="Control" unique_id=241349216]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 184.0
-offset_bottom = 120.0
+offset_right = 120.0
+offset_bottom = 56.0
 mouse_default_cursor_shape = 2
 script = ExtResource("1_hcd6w")
+item_data = ExtResource("2_6c14j")
 search_icon = ExtResource("3_2xprd")
+metadata/_edit_vertical_guides_ = [83.0]
 
 [node name="物品品质" type="ColorRect" parent="." unique_id=1613303114]
 visible = false
@@ -27,30 +33,84 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="物品图标" type="TextureRect" parent="." unique_id=860350122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -28.0
+offset_right = 60.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(60, 28)
+texture = ExtResource("4_6c14j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="弹匣显示" type="TextureRect" parent="物品图标" unique_id=1584860030]
 visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 87.0
+offset_right = -82.94061
+offset_bottom = 17.660736
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_cs2tm")
-stretch_mode = 5
+scale = Vector2(0.9728775, 0.98695755)
+texture = ExtResource("5_ahvj4")
+
+[node name="瞄具显示" type="TextureRect" parent="物品图标" unique_id=1042494670]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 17.0
+offset_right = -82.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_6c14j")
+
+[node name="机匣2" type="TextureRect" parent="物品图标" unique_id=1711645428]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -3.0
+offset_right = -34.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ahvj4")
 
 [node name="数量" type="Label" parent="." unique_id=1997844354]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -83.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
+text = "444444444"
 horizontal_alignment = 2
+vertical_alignment = 3
 
 [node name="物品名字" type="Label" parent="." unique_id=1634465312]
+visible = false
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0

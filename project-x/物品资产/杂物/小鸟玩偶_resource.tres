@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b1eekho8cvpw1"]
+
+[ext_resource type="Texture2D" uid="uid://c41ydo4em2jtf" path="res://资产/物品/小鸟玩偶2.png" id="1_e3xj4"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_55twl"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_t23ey"]
+
+[resource]
+script = ExtResource("2_55twl")
+item_id = "杂物_小鸟玩偶"
+item_name = "小鸟玩偶"
+icon = ExtResource("1_e3xj4")
+quality = 5
+can_stack = false
+discard_scale = 0.1
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

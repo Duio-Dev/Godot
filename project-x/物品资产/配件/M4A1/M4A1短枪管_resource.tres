@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bjlof0pusqv7u"]
+
+[ext_resource type="Texture2D" uid="uid://dpig7ctlogu6t" path="res://资产/武器/M4A1/M4A1QG.png" id="1_yb65l"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_yb65l"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_3q2aj"]
+
+[resource]
+script = ExtResource("3_3q2aj")
+item_id = "m4a1_bar"
+item_name = "M4A1 短枪管"
+icon = ExtResource("1_yb65l")
+grid_width = 2
+weight = 2.5
+can_stack = false
+weapon_part_type = 6
+compatible_receivers = Array[String](["m4a1_receiver"])
+model_texture = ExtResource("1_yb65l")
+grid_width_increase = 1
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

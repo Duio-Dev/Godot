@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dbid5j18msqp"]
+
+[ext_resource type="PackedScene" uid="uid://c05acg3c6bm36" path="res://场景/饮食/饮食_啤酒.tscn" id="1_fbaio"]
+[ext_resource type="Texture2D" uid="uid://bpxqxtiy4bf5n" path="res://资产/物品/饮料.png" id="1_m3ptb"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_bpue7"]
+[ext_resource type="Texture2D" uid="uid://bevjskuu10dpx" path="res://资产/其他/Sprite-0002-Sheet.png" id="2_dgott"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="4_dgott"]
+
+[resource]
+script = ExtResource("2_bpue7")
+item_id = "PJ_01"
+item_name = "啤酒"
+description = "由博福特食品集团发售的一款功能啤酒，能够有效抵抗饥饿和口渴，还能让人处于兴奋。"
+icon = ExtResource("1_m3ptb")
+grid_height = 2
+weight = 0.2
+can_stack = false
+preferred_slot = 2
+discard_scale = 0.3
+discard_collision_radius = 10.0
+helmet_durability = 0.0
+is_food_or_drink = true
+consume_scene = ExtResource("1_fbaio")
+consume_animation = "饮食"
+consume_sprite = ExtResource("2_dgott")
+hydration_restore = 23.0
+satiety_restore = 25.0
+stamina_restore = 45.0
+food_treatment_duration = 1.5
+consume_durability = 3.0
+buff_type = 2
+buff_value = 20.0
+buff_duration = 120.0
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

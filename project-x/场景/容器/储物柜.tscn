@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cn5gyxvavrgw8"]
+
+[ext_resource type="PackedScene" uid="uid://76fnwehnxrme" path="res://场景/所有继承场景的父场景/container_loot.tscn" id="1_dr7ug"]
+[ext_resource type="Texture2D" uid="uid://e4a8ido2dcmt" path="res://Interiors_free/16x16/Interiors_free_16x16.png" id="2_4dotw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17auo"]
+atlas = ExtResource("2_4dotw")
+region = Rect2(32, 253, 31, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylcwx"]
+radius = 24.083189
+
+[node name="ContainerLoot" unique_id=1078231637 instance=ExtResource("1_dr7ug")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1314882551]
+texture = SubResource("AtlasTexture_17auo")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=500242652]
+shape = SubResource("CircleShape2D_ylcwx")

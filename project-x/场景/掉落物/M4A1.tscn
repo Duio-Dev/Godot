@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://df8ia376h2b2e"]
+
+[ext_resource type="PackedScene" uid="uid://c8tphuh6q0bk0" path="res://场景/所有继承场景的父场景/loot_item.tscn" id="1_wuvb5"]
+[ext_resource type="Resource" uid="uid://0cejhll5qqxl" path="res://物品资产/枪械/M4A1_resource.tres" id="2_wuvb5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvhbo"]
+radius = 13.333333
+
+[node name="啤酒" unique_id=1521847288 instance=ExtResource("1_wuvb5")]
+scale = Vector2(0.3, 0.3)
+item_data = ExtResource("2_wuvb5")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=374472026]
+shape = SubResource("CircleShape2D_wvhbo")

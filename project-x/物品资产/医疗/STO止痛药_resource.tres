@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://iadlp68aksye"]
+
+[ext_resource type="Texture2D" uid="uid://ddqtcha7wx0i2" path="res://资产/物品/STO止痛药.png" id="1_lhos2"]
+[ext_resource type="PackedScene" uid="uid://bebx7tvrolpj7" path="res://场景/医疗/医疗_STO止痛药.tscn" id="2_7dikh"]
+[ext_resource type="Texture2D" uid="uid://bevjskuu10dpx" path="res://资产/其他/Sprite-0002-Sheet.png" id="2_spw7v"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_spw7v"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="4_7dikh"]
+
+[resource]
+script = ExtResource("3_spw7v")
+item_id = "医疗_STO止痛药"
+item_name = "止痛药"
+description = "由百年老牌药企 Aether‑Pharma 埃瑟制药研发，搭载定时缓释配方，可以快速压制外伤剧痛、缓解负伤之后的身体负面状态，是该国家民用、战地仓库当中十分常见的镇痛物资"
+icon = ExtResource("1_lhos2")
+weight = 0.2
+can_stack = false
+preferred_slot = 2
+discard_scale = 0.1
+discard_collision_radius = 10.0
+medical_scene = ExtResource("2_7dikh")
+medical_animation = "医疗"
+limb_heal_max_penalty = 0.0
+limb_heal_amount = 0.0
+medical_durability = 1.0
+activation_time = 0.4
+treatment_duration = 1.0
+use_sprite = ExtResource("2_spw7v")
+is_food_or_drink = true
+consume_scene = ExtResource("2_7dikh")
+consume_animation = "医疗"
+consume_sprite = ExtResource("2_spw7v")
+hydration_restore = -10.0
+satiety_restore = -5.0
+food_activation_time = 0.4
+food_treatment_duration = 1.0
+consume_durability = 8.0
+buff_type = 1
+buff_value = 0.15
+buff_duration = 180.0
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

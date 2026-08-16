@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b6mbkokg66yhd"]
+
+[ext_resource type="Texture2D" uid="uid://dr17a70g7wjeo" path="res://资产/武器/M4A1/M4A1.png" id="1_6pct6"]
+[ext_resource type="Texture2D" uid="uid://8gquenr1wogl" path="res://资产/其他/Hand.png" id="2_5d8b1"]
+[ext_resource type="AudioStream" uid="uid://s8drmddnke4a" path="res://资产/小口径手枪弹壳/小口径手枪弹壳落地_1.wav" id="2_emj7p"]
+[ext_resource type="Script" uid="uid://32b84ylaf2gs" path="res://脚本/武器.gd" id="2_vrvoe"]
+
+[node name="M4A1" type="Node2D" unique_id=660814744]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_vrvoe")
+"弹壳落地音效" = ExtResource("2_emj7p")
+"右手_有后托位置" = Vector2(-6.666666, 6.6666665)
+"右手_无后托位置" = Vector2(-3.333333, 6.6666665)
+"左手_有后托位置" = Vector2(-26.666666, 3.3333333)
+"左手_无后托位置" = Vector2(-23.333332, 3.3333333)
+
+[node name="枪体" type="Sprite2D" parent="." unique_id=228340048]
+position = Vector2(-13.333333, 3.3333335)
+scale = Vector2(1, 0.88)
+texture = ExtResource("1_6pct6")
+
+[node name="瞄具" type="Sprite2D" parent="枪体" unique_id=793906083]
+position = Vector2(14.000001, -4.545455)
+scale = Vector2(1, 1.1363637)
+
+[node name="右手" type="Sprite2D" parent="." unique_id=1217132938]
+position = Vector2(-6.6666665, 6.6666665)
+scale = Vector2(1.8749998, 1.8750001)
+texture = ExtResource("2_5d8b1")
+region_enabled = true
+region_rect = Rect2(13, 13, 4, 4)
+
+[node name="左手" type="Sprite2D" parent="." unique_id=470269439]
+position = Vector2(-26.666666, 3.3333333)
+scale = Vector2(1.7890624, 1.6953123)
+texture = ExtResource("2_5d8b1")
+region_enabled = true
+region_rect = Rect2(13, 13, 4, 4)
+
+[node name="枪口" type="Marker2D" parent="." unique_id=1956579455]
+position = Vector2(-43.333332, -3.973643e-07)
+scale = Vector2(1, 1.0000001)
+
+[node name="换弹音效" type="AudioStreamPlayer2D" parent="." unique_id=17370729]
+position = Vector2(-16.666666, 6.6666665)
+volume_db = 10.0
+
+[node name="抛壳" type="Marker2D" parent="." unique_id=3688307]
+position = Vector2(-6.076999, -2.2280004)
+scale = Vector2(1, 1.0000001)

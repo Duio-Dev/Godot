@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponSlot" format=3 uid="uid://cdjghaukyvyem"]
+
+[ext_resource type="Texture2D" uid="uid://dlnbi576ocqgk" path="res://资产/物品/M4AI弹夹.png" id="1_lh7xo"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_adu77"]
+
+[resource]
+script = ExtResource("2_adu77")
+slot_name = "弹匣井"
+slot_type = 9
+mount_offset = Vector2(2.195, 15.955)
+preview_texture = ExtResource("1_lh7xo")
+preview_size = Vector2(8.16, 9.985)
+metadata/_custom_type_script = "uid://qac72cdlg3vc"

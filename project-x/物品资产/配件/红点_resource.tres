@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ceda5dnc5lblq"]
+
+[ext_resource type="Texture2D" uid="uid://j1fmwsm6y8md" path="res://资产/物品/HD.png" id="1_03oc3"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_g20r4"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_gn3w4"]
+
+[resource]
+script = ExtResource("2_g20r4")
+item_id = "reddot_sight"
+item_name = "红点"
+description = "通用型红点瞄准镜，有着良好的镜内视野"
+icon = ExtResource("1_03oc3")
+weight = 0.1
+ergonomics_modifier = -3.0
+weapon_part_type = 8
+model_texture = ExtResource("1_03oc3")
+is_sight = true
+sight_mount_offset = Vector2(25, -1)
+sight_display_size = Vector2(7, 4)
+aim_zoom_level = 15.0
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://410otncibie8"]
+
+[ext_resource type="Texture2D" uid="uid://u65162kbmrli" path="res://资产/物品/KD8C.png" id="1_eqaf0"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="1_vncv5"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_eqaf0"]
+[ext_resource type="Texture2D" uid="uid://dltchyndmrw7w" path="res://资产/装备/KD8C.png" id="4_es3f1"]
+
+[resource]
+script = ExtResource("2_eqaf0")
+item_id = "KD8"
+item_name = "KD8"
+description = "一款通用型防护面罩。"
+icon = ExtResource("1_eqaf0")
+grid_width = 2
+weight = 0.5
+can_stack = false
+weapon_part_type = 11
+compatible_receivers = Array[String](["IND_60T"])
+model_texture = ExtResource("1_eqaf0")
+discard_scale = 0.15
+visor_display_texture = ExtResource("4_es3f1")
+helmet_durability = 0.0
+helmet_ignore_chance = 0.0
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ctf4qut410tu3"]
+
+[ext_resource type="Texture2D" uid="uid://b28g72dwemtxx" path="res://资产/装备/SCC.png" id="1_0oqjw"]
+[ext_resource type="Texture2D" uid="uid://4qrkfikxsi4" path="res://资产/物品/SCC战术行动背包.png" id="1_kxsgc"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_0oqjw"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="3_2r6ss"]
+
+[resource]
+script = ExtResource("3_2r6ss")
+item_id = "SCC战术背包"
+item_name = "SCC战术背包"
+icon = ExtResource("1_kxsgc")
+grid_width = 3
+grid_height = 4
+weight = 1.0
+can_stack = false
+preferred_slot = 3
+discard_scale = 0.15
+is_backpack = true
+backpack_grid_columns = 6
+backpack_grid_rows = 5
+backpack_display_texture = ExtResource("1_0oqjw")
+backpack_display_offset = Vector2(-6, -4)
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dw22n4f8rrt16"]
+
+[ext_resource type="Texture2D" uid="uid://bq888hl02ab0p" path="res://资产/物品/5.56_45.png" id="1_7nijy"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_e52yn"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_xi5pj"]
+
+[resource]
+script = ExtResource("2_e52yn")
+item_id = "5.56*45弹药"
+item_name = "5.56*45 M193"
+icon = ExtResource("1_7nijy")
+weight = 0.2
+max_stack = 10000
+ammo_type = "5.56*45弹药"
+preferred_slot = 2
+armor_damage = 5.0
+discard_scale = 0.003
+metadata/_custom_type_script = "uid://bd4fxqngxpik"

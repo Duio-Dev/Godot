@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cf2wa0ooanujp"]
+
+[ext_resource type="Texture2D" uid="uid://dymw3j4o6pxy8" path="res://资产/tilemaps/Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="1_agq7g"]
+[ext_resource type="Script" uid="uid://cd36qcbm6plax" path="res://脚本/trree.gd" id="1_wr35g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(30, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifow5"]
+size = Vector2(111, 151)
+
+[node name="Trree" type="Node2D" unique_id=957159538]
+script = ExtResource("1_wr35g")
+
+[node name="Tree" type="Sprite2D" parent="." unique_id=735469401]
+texture = ExtResource("1_agq7g")
+region_enabled = true
+region_rect = Rect2(83, 531, 30, 27)
+
+[node name="Tree2" type="Sprite2D" parent="." unique_id=530480134]
+position = Vector2(1, -80)
+texture = ExtResource("1_agq7g")
+region_enabled = true
+region_rect = Rect2(44, 11, 110, 151)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=117267020]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=313746643]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1340788356]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2129446044]
+position = Vector2(0.5, -80.5)
+shape = SubResource("RectangleShape2D_ifow5")

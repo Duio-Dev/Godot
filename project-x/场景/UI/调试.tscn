@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bpw2gvdxw8by5"]
+
+[ext_resource type="Script" uid="uid://dmihqflp7qp0u" path="res://脚本/调试.gd" id="1_2q83r"]
+[ext_resource type="Resource" uid="uid://dgmuwr43y38kb" path="res://物品资产/装备/头盔/IND_60T_resource.tres" id="2_8gqqb"]
+
+[node name="调试" type="Control" unique_id=1140975027]
+custom_minimum_size = Vector2(20, 23)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1862.0
+offset_bottom = -1054.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2q83r")
+receiver_item = ExtResource("2_8gqqb")

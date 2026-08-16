@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0idou5tc3kbo"]
+
+[ext_resource type="Texture2D" uid="uid://pv43gy7c63ql" path="res://资产/物品/AK47DX.png" id="1_2ov37"]
+[ext_resource type="Script" uid="uid://bd4fxqngxpik" path="res://脚本/资源脚本/ItemData.gd" id="2_4671j"]
+[ext_resource type="Script" uid="uid://qac72cdlg3vc" path="res://脚本/资源脚本/WeaponSlot.gd" id="2_ule2d"]
+
+[resource]
+script = ExtResource("2_4671j")
+item_id = "AK47弹夹"
+item_name = "AK47弹夹"
+icon = ExtResource("1_2ov37")
+grid_height = 2
+weight = 0.2
+can_stack = false
+is_magazine = true
+ammo_type = "7.62弹药"
+weapon_id = "AK47"
+preferred_slot = 2
+discard_scale = 0.3
+metadata/_custom_type_script = "uid://bd4fxqngxpik"
